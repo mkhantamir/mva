@@ -1,1 +1,1 @@
-export const CDN_URL = "http://localhost:3275/cdn";
+export const CDN_URL = "https://volleyball.ave.mn/cdn";
