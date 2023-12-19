@@ -1,0 +1,11 @@
+.container {
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.1;
+  img {
+    width: 2200px;
+    height: 1800px;
+  }
+}

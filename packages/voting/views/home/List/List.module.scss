@@ -1,0 +1,159 @@
+.item {
+  display: flex;
+  align-items: center;
+  background: $color_light;
+
+  margin-bottom: 3vw;
+  border-radius: 1.5vw;
+  padding: 1.5vw;
+  @include responsive("lg") {
+    margin-bottom: 0.5vw;
+    border-radius: 0.4vw;
+    padding: 0.2vw;
+  }
+  @include responsive("xl") {
+    margin-bottom: 0.5vw;
+    border-radius: 0.4vw;
+    padding: 0.2vw;
+  }
+  button {
+    padding: 1vw 6vw 1.2vw 6vw;
+    margin-top: 1.5vw;
+    p {
+      font-size: 4vw;
+    }
+    cursor: pointer;
+    @include responsive("lg") {
+      padding: 0.15vw 1.3vw 0.25vw 1.3vw;
+      margin-top: 0.2vw;
+      p {
+        font-size: 1vw;
+      }
+    }
+  }
+}
+.avatar {
+  position: relative;
+  overflow: hidden;
+  width: 20vw;
+  height: 20vw;
+  background: $color_gray;
+  border-radius: 1.5vw;
+  @include responsive("xl") {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 0.4vw;
+  }
+  img {
+    transform: scale(1.8) translateY(20%);
+    object-fit: contain;
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 45vw;
+  margin: 0 3vw;
+  @include responsive("lg") {
+    margin: 0 0.5vw;
+    width: 13.5vw;
+  }
+  @include responsive("xl") {
+    width: 11vw;
+  }
+  & > p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:nth-child(1) {
+      font-size: 3.5vw;
+      color: rgba($color_black, 0.6);
+      @include responsive("lg") {
+        font-size: 0.7vw;
+      }
+    }
+    &:nth-child(2) {
+      font-size: 4vw;
+      font-weight: 600;
+      @include responsive("lg") {
+        font-size: 0.9vw;
+      }
+    }
+  }
+}
+.position {
+  display: flex;
+  align-items: center;
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color_secondary;
+    font-family: "TT Bluescreens Pro";
+    color: $color_light;
+    width: 7vw;
+    height: 7vw;
+    font-size: 4.5vw;
+    border-radius: 50%;
+    margin-right: 1vw;
+    @include responsive("lg") {
+      width: 1.5vw;
+      height: 1.5vw;
+      font-size: 1.2vw;
+      border-radius: 50%;
+      margin-right: 0.3vw;
+    }
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color_black;
+    border-radius: 50%;
+    color: $color_light;
+    font-weight: 600;
+    width: 7vw;
+    height: 7vw;
+    font-size: 2.5vw;
+    @include responsive("lg") {
+      width: 1.5vw;
+      height: 1.5vw;
+      font-size: 0.6vw;
+    }
+  }
+}
+.none {
+  text-align: center;
+  background: $color_light;
+  color: $color_black;
+  padding: 3vw 0;
+  border-radius: 1.2vw;
+  font-size: 4vw;
+
+  @include responsive("lg") {
+    padding: 0.6vw 0;
+    border-radius: 0.3vw;
+    font-size: 0.9vw;
+  }
+}
+.button {
+  background: $color_gray;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: rgba($color_primary, 0.6);
+  }
+  p {
+    transition: all 0.3s ease-in-out;
+  }
+  &_selected {
+    background: $color_primary;
+    p {
+      transform: rotate(45deg);
+    }
+    &:hover {
+      background: $color_primary;
+    }
+  }
+}

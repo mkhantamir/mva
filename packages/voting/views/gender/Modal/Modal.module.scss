@@ -1,0 +1,61 @@
+.container {
+  background: $color_light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vw 0;
+  padding: 3vw;
+  border-radius: 2vw;
+  @include responsive("sm") {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  @include responsive("md") {
+    margin: 0 1.5vw;
+    padding: 2vw;
+    border-radius: 1vw;
+  }
+  @include responsive("lg") {
+    margin: 0 1.5vw;
+    padding: 1.5vw;
+    border-radius: 0.8vw;
+  }
+  @include responsive("xl") {
+    margin: 0 1vw;
+    padding: 1vw;
+    border-radius: 0.5vw;
+  }
+}
+.image {
+  background: $color_gray;
+  border-radius: 2vw;
+  width: 60vw;
+  height: 40vw;
+  margin-bottom: 6vw;
+
+  @include responsive("sm") {
+    border-radius: 0.5rem;
+    width: 14rem;
+    height: 9rem;
+    margin-bottom: 1.5rem;
+  }
+  @include responsive("md") {
+    border-radius: 1vw;
+    width: 30vw;
+    height: 20vw;
+    margin-bottom: 2.5vw;
+  }
+  @include responsive("lg") {
+    border-radius: 0.8vw;
+    width: 20vw;
+    height: 12vw;
+    margin-bottom: 2vw;
+  }
+  @include responsive("xl") {
+    border-radius: 0.5vw;
+    width: 14vw;
+    height: 9vw;
+    margin-bottom: 1.5vw;
+  }
+}

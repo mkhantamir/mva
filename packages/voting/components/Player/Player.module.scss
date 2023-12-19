@@ -1,0 +1,120 @@
+.container {
+  position: absolute;
+  transform: translateY(15%);
+  position: relative;
+  background: $color_light;
+  padding: 0.5vw;
+  border-radius: 0.4vw;
+  cursor: pointer;
+}
+.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%);
+  background: $color_light;
+  width: 1.2vw;
+  height: 1.2vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  svg {
+    width: 60%;
+    height: 60%;
+    transform: rotate(45deg);
+  }
+}
+.avatar {
+  position: relative;
+  width: 7vw;
+  height: 7vw;
+  margin-bottom: 1vw;
+  img {
+    border-radius: 0.4vw;
+    object-fit: cover;
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > p {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:nth-child(1) {
+      font-size: 0.65vw;
+      color: rgba($color_black, 0.5);
+    }
+    &:nth-child(2) {
+      font-size: 0.8vw;
+      font-weight: 600;
+    }
+  }
+}
+.position {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  align-items: center;
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color_secondary;
+    font-family: "TT Bluescreens Pro";
+    color: $color_light;
+    width: 1.5vw;
+    height: 1.5vw;
+    font-size: 1.2vw;
+    border-radius: 50%;
+    margin-right: 0.3vw;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5vw;
+    height: 1.5vw;
+    background: $color_black;
+    border-radius: 50%;
+    color: $color_light;
+    font-size: 0.6vw;
+    font-weight: 600;
+  }
+}
+.active {
+  box-shadow: 0px 0px 20px rgba($color_light, 0.6);
+}
+.in {
+  animation: fade-in 0.3s ease-in-out;
+}
+.out {
+  animation: fade-out 0.3s ease-in-out;
+}
+@keyframes fade-in {
+  0% {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(15%);
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    transform: translateY(15%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+}

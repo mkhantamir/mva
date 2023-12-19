@@ -1,0 +1,12 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color_body;
+  overflow: hidden;
+}
+.landscape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

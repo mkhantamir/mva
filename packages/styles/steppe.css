@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../assets/steppe/Steppe-Thin.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 200;
+    src: url("../assets/steppe/Steppe-ExtraLight.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../assets/steppe/Steppe-Light.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../assets/steppe/Steppe-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../assets/steppe/Steppe-Medium.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../assets/steppe/Steppe-SemiBold.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../assets/steppe/Steppe-Bold.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 800;
+    src: url("../assets/steppe/Steppe-ExtraBold.ttf");
+  }
+  @font-face {
+    font-family: "Steppe";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../assets/steppe/Steppe-Black.ttf");
+  }

@@ -1,0 +1,206 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($color_black, 0.3);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+  &_show {
+    opacity: 1;
+    z-index: 102;
+  }
+  @include responsive("lg") {
+    display: none;
+  }
+}
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  transition: all 0.3s ease-in-out;
+  background: $color_gray;
+  border-top-right-radius: 3vw;
+  border-top-left-radius: 3vw;
+  height: 80vh;
+  width: 95vw;
+  z-index: 103;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include responsive("lg") {
+    z-index: auto;
+    background: transparent;
+    height: auto;
+    width: auto;
+    top: 54%;
+    left: 0;
+    bottom: auto;
+    transform: translateX(-100%) translateY(-45%);
+  }
+  &_show {
+    transform: translateX(-50%);
+    @include responsive("lg") {
+      transform: translateX(0%) translateY(-45%);
+      left: 2vw;
+    }
+    @include responsive("xl") {
+      left: 5vw;
+    }
+  }
+}
+.search {
+  position: relative;
+  background: $color_light;
+  border-radius: 1.5vw;
+
+  img {
+    position: absolute;
+    top: 50%;
+    width: 6vw;
+    height: 6vw;
+    transform: translateY(-50%);
+    left: 2vw;
+    @include responsive("lg") {
+      width: 1.6vw;
+      height: 1.6vw;
+      left: 0.5vw;
+    }
+    @include responsive("xl") {
+      font-size: 0.8vw;
+      padding: 0.7vw 0.7vw 0.6vw 2vw;
+      border-radius: 0.4vw;
+    }
+  }
+  input {
+    border: none;
+    font-size: 4vw;
+    padding: 3vw 3vw 2.5vw 10vw;
+    width: 100%;
+    background: none;
+    &:focus {
+      outline: none;
+    }
+    @include responsive("lg") {
+      font-size: 1vw;
+      padding: 1vw 1vw 0.9vw 2.4vw;
+      border-radius: 0.4vw;
+    }
+    @include responsive("xl") {
+      font-size: 0.8vw;
+      padding: 0.7vw 0.7vw 0.6vw 2vw;
+      border-radius: 0.4vw;
+    }
+  }
+}
+.wrapper {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 8vw 4vw 4vw 4vw;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.6vw;
+
+  @include responsive("lg") {
+    background: $color_gray;
+    padding: 1.2vw 0.5vw 1.2vw 1.2vw;
+    width: 25vw;
+    height: 35vw;
+    border-radius: 0.7vw;
+  }
+  @include responsive("xl") {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 0.5vw;
+    padding: 1vw 0.5vw 1vw 1vw;
+    width: 22vw;
+    height: 30vw;
+    border-radius: 0.6vw;
+  }
+}
+.team {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  div {
+    position: relative;
+    min-width: 10vw;
+    min-height: 10vw;
+    margin-right: 1.5vw;
+    @include responsive("lg") {
+      min-width: 2vw;
+      min-height: 2vw;
+      margin-right: 0.3vw;
+    }
+  }
+  p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 4vw;
+    padding-right: 4vw;
+    @include responsive("lg") {
+      font-size: 0.8vw;
+      padding-right: 1vw;
+    }
+  }
+  img {
+    filter: invert(1);
+  }
+}
+.all {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2vw 4vw;
+  font-size: 4vw;
+  padding-right: 4vw;
+  @include responsive("lg") {
+    height: 2vw;
+    padding: 0 0.5vw;
+    font-size: 0.8vw;
+    padding-right: 1vw;
+  }
+}
+.sort {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  margin: 4vw 0;
+  & > div {
+    margin-right: 2vw;
+  }
+
+  @include responsive("lg") {
+    margin: 1vw 0;
+    & > div {
+      margin-right: 0.5vw;
+    }
+  }
+}
+.close {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(100%);
+  transition: all 0.3s ease-in-out;
+  &_show {
+    bottom: 8vw;
+    transform: translateX(-50%);
+  }
+  @include responsive("lg") {
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vw;
+  margin-bottom: 20vw;
+  @include responsive("lg") {
+    display: none;
+  }
+}
+.disable {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}

@@ -1,0 +1,9 @@
+.base {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($color_light, 0.5);
+  backdrop-filter: blur(15px);
+}

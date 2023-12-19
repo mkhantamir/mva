@@ -1,0 +1,37 @@
+@import "./inter.css";
+@import "./bluescreens.css";
+@import "./steppe.css";
+@import "./variables.scss";
+@import "./packages.scss";
+@import "./responsive.scss";
+
+body {
+  color: $color_black;
+  background: $color_body;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: $color_primary;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+
+  ::-webkit-scrollbar {
+    width: 0.5vw;
+    height: 0.5vw;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba($color_black, 0.2);
+    border-radius: 10rem;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba($color_black, 0.3);
+  }
+}

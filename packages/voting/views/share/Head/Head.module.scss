@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  margin-top: 4rem;
+  img {
+    &:nth-child(1) {
+      width: 10rem;
+    }
+    &:nth-child(3) {
+      width: 10rem;
+    }
+  }
+}

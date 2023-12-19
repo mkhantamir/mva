@@ -1,0 +1,12 @@
+.base {
+  background: $color_gray;
+  color: $color_black;
+  border: none;
+  padding: 1vw 1.5vw;
+  width: 100%;
+  border-radius: 0.5vw;
+  font-size: 0.9vw;
+  &:focus {
+    outline: none;
+  }
+}

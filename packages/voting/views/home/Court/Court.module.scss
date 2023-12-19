@@ -1,0 +1,135 @@
+.container {
+  position: fixed;
+  transition: transform 0.5s ease-in-out;
+  top: 60%;
+  left: 50%;
+
+  display: none;
+  @include responsive("lg") {
+    top: 70%;
+    display: block;
+  }
+}
+.image {
+  position: relative;
+  @include responsive("lg") {
+    width: 105vw;
+    height: 105vw;
+  }
+  @include responsive("xl") {
+    width: 92vw;
+    height: 92vw;
+  }
+}
+.large {
+  transform: translate(-50%, -37%);
+  .positions {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.side {
+  transform: translate(-40%, -32%);
+  .positions {
+    transform: translate(-50%, -70%) scale(1);
+  }
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 60vw;
+  background: linear-gradient(90deg, $color_body 55%, rgba($color_body, 0));
+}
+.positions {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transition: all 0.5s ease-in-out;
+  @include responsive("lg") {
+    width: 4vw;
+    height: 4vw;
+  }
+  @include responsive("xl") {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+.item {
+  position: absolute;
+  transform-origin: bottom;
+  transform: translateY(-100%) translateX(-50%);
+  &:nth-child(2) {
+    @include responsive("lg") {
+      top: 16vw;
+      left: -25vw;
+    }
+    @include responsive("xl") {
+      top: 13vw;
+      left: -21.5vw;
+    }
+  }
+  &:nth-child(3) {
+    @include responsive("lg") {
+      top: 16vw;
+      left: 2vw;
+    }
+    @include responsive("xl") {
+      top: 13vw;
+      left: 1.5vw;
+    }
+  }
+  &:nth-child(4) {
+    @include responsive("lg") {
+      top: 16vw;
+      left: 27vw;
+    }
+    @include responsive("xl") {
+      top: 13vw;
+      left: 24.5vw;
+    }
+  }
+  &:nth-child(5) {
+    @include responsive("lg") {
+      top: -2vw;
+      left: 20.5vw;
+    }
+    @include responsive("xl") {
+      top: -2vw;
+      left: 19.5vw;
+    }
+  }
+  &:nth-child(6) {
+    @include responsive("lg") {
+      top: -2vw;
+      left: 2vw;
+    }
+    @include responsive("xl") {
+      top: -2vw;
+      left: 1.5vw;
+    }
+  }
+  &:nth-child(1) {
+    @include responsive("lg") {
+      top: -2vw;
+      left: -17vw;
+    }
+    @include responsive("xl") {
+      top: -2vw;
+      left: -16.5vw;
+    }
+  }
+  &:nth-child(7) {
+    @include responsive("lg") {
+      top: -1vw;
+      left: 35.5vw;
+    }
+    @include responsive("xl") {
+      top: 1vw;
+      left: 35.5vw;
+    }
+    p {
+      color: $color_black;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landscape {
+  position: absolute;
+  margin-bottom: 90px;
+}
+.portrait {
+  position: relative;
+  flex-wrap: wrap;
+  margin-top: 90px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  background: $color_light;
+  margin: 14px;
+  padding: 18px;
+  border-radius: 10px;
+  & > h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    white-space: nowrap;
+  }
+}
+.info {
+  position: absolute;
+  width: 100%;
+  left: 31.5px;
+  bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  & > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px;
+    min-height: 35px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 50%;
+    &:nth-child(1) {
+      font-family: "TT Bluescreens Pro";
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: rgba($color_black, 0.6);
+      background: $color_secondary;
+      color: $color_light;
+    }
+    &:nth-child(3) {
+      background: $color_black;
+      color: $color_light;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+  .logo {
+    position: relative;
+    min-width: 35px;
+    min-height: 35px;
+    background: $color_light;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 10px;
+  }
+  img {
+    object-fit: contain;
+    filter: invert(1);
+  }
+}
+.avatar {
+  position: relative;
+  min-width: 190px;
+  min-height: 190px;
+  & > img {
+    border-radius: 10px;
+  }
+}

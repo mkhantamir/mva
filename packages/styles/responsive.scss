@@ -1,0 +1,33 @@
+$breakpoints: (
+  "xs": (
+    max-width: 325px,
+  ),
+  "sm": (
+    min-width: 420px,
+  ),
+  "md": (
+    min-width: 768px,
+  ),
+  "lg": (
+    min-width: 1024px,
+  ),
+  "xl": (
+    min-width: 1366px,
+  ),
+  "xxl": (
+    min-width: 1440px,
+  ),
+  "xxxl": (
+    min-width: 1920px,
+  ),
+) !default;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint: `#{$breakpoint}`. ";
+  }
+}
