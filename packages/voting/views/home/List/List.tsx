@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@mva/shared";
+import { Button, CDN_URL } from "@mva/shared";
 import { PlayerType } from "~/pages";
 import css from "./List.module.scss";
 type Props = {
@@ -29,7 +29,7 @@ export const List = ({ list, category, onSelect, selectedPlayers }: Props) => {
           <div className={css.item} key={i}>
             <div className={css.avatar}>
               <Image
-                src={`https://mesa.b-cdn.net/volleyball/2023/avatars/${player.avatar}`}
+                src={`${CDN_URL}/volleyball/2023/avatars/${player.avatar}`}
                 alt={player.firstname}
                 fill
               />

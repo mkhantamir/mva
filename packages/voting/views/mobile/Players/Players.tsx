@@ -5,6 +5,7 @@ import { Card } from "~/views/voted";
 import { useContext } from "react";
 import { IsVotesContext } from "~/context/isvoted.contex";
 import { GenderContext } from "~/context";
+import { CDN_URL } from "@mva/shared";
 type Props = {
   selected: number;
   selectedPlayers: { player: PlayerType; position: number }[];
@@ -78,7 +79,7 @@ export const Players = ({
                 >
                   <div className={css.avatar}>
                     <Image
-                      src={`https://mesa.b-cdn.net/volleyball/2023/avatars/${data.player.avatar}`}
+                      src={`${CDN_URL}/volleyball/2023/avatars/${data.player.avatar}`}
                       alt={`${data.player.team.name} - ${data.player.firstname} ${data.player.lastname}`}
                       fill
                     />

@@ -2,6 +2,7 @@ import { PlayerType } from "~/pages";
 import css from "./Player.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { CDN_URL } from "@mva/shared";
 
 type Props = {
   data?: {
@@ -65,7 +66,7 @@ export const Player = ({
         </div>
         <div className={css.avatar}>
           <Image
-            src={`https://mesa.b-cdn.net/volleyball/2023/avatars/${player.avatar}`}
+            src={`${CDN_URL}/volleyball/2023/avatars/${player.avatar}`}
             alt={`${player.team.name} - ${player.firstname} ${player.lastname}`}
             fill
           />
