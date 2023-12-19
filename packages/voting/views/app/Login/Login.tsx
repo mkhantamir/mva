@@ -62,7 +62,7 @@ export const Login = ({}: Props) => {
       setConfirmation(confirmation);
       toast.success("Баталгаажуулах код илгээгдлээ.");
     } catch (error: any) {
-      toast.error(error);
+      errorHandler(error);
     }
   }
   async function confirmVerification() {
