@@ -93,7 +93,17 @@ export const Confirm = ({}: Props) => {
               canvasHeight: 1920,
               cacheBust: false,
             });
-            console.log(refV.current, url);
+            const url1 = await toJpeg(refV.current, {
+              width: 1080,
+              height: 1920,
+              quality: 0.8,
+            });
+            const url2 = await toJpeg(refV.current, {
+              canvasWidth: 1080,
+              canvasHeight: 1920,
+              quality: 0.8,
+            });
+            console.log(url, url2);
             await uploadImage({ base64: url, label: name });
           } catch (error) {
             console.log("err", error);
