@@ -10,6 +10,7 @@ import {
   ShowSubmitContext,
 } from "~/context";
 import { errorHandler } from "@mva/shared";
+import { toast } from "react-toastify";
 type Props = {};
 
 export const Confirm = ({}: Props) => {
@@ -24,6 +25,20 @@ export const Confirm = ({}: Props) => {
   const submitVote = async () => {
     try {
       setLoading(true);
+      if (gender) {
+        let votes: any = window.localStorage.getItem("votes");
+        if (votes) {
+          votes = JSON.parse(votes);
+        } else {
+          votes = { male: [], female: [] };
+        }
+        if (votes[gender].length > 0) {
+          toast.error("Нэг л санал өгөх боломжтой!");
+          return 0;
+        }
+        votes[gender] = selectedPlayers;
+        window.localStorage.setItem("votes", JSON.stringify(votes));
+      }
       if (gender) {
         await vote(
           selectedPlayers.map(({ player, position }) => ({

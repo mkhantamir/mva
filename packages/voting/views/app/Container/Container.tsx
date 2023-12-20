@@ -27,32 +27,30 @@ export const Container = ({ children }: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await status();
-        if (response.result && router.pathname === "/login") {
-          router.push("/");
-        }
-        if (!response.result && router.pathname === "/") {
-          router.push("/login");
-        }
-        if (response.result) {
-          const is_voted = await checkVoted();
+        // const response = await status();
+        // if (response.result && router.pathname === "/login") {
+        //   router.push("/");
+        // }
+        // if (!response.result && router.pathname === "/") {
+        //   router.push("/login");
+        // }
+        // if (response.result) {
+        // }
+        const votes: any = window.localStorage.getItem("votes");
+        if (votes) {
+          const is_voted = JSON.parse(votes);
           if (is_voted.male || is_voted.female) {
-            const votes = await getMyVotes();
-            const male = votes
-              .filter((vote: any) => vote.player.sex === "male")
-              .map((vote: any) => ({
-                player: vote.player,
-                position: vote.position_id,
-              }));
-            const female = votes
-              .filter((vote: any) => vote.player.sex === "female")
-              .map((vote: any) => ({
-                player: vote.player,
-                position: vote.position_id,
-              }));
-            setVotedPlayers({ female, male });
+            setVotedPlayers({ female: is_voted.female, male: is_voted.male });
           }
-          setIsVoted(is_voted);
+          setIsVoted({
+            male: is_voted.male.length > 0 ? true : false,
+            female: is_voted.female.length > 0 ? true : false,
+          });
+        } else {
+          setIsVoted({
+            male: false,
+            female: false,
+          });
         }
       } catch (error) {
         errorHandler(error);
