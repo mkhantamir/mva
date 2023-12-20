@@ -58,15 +58,20 @@ export const Confirm = ({}: Props) => {
           });
         const result = await checkImage(name);
         if (!result) {
-          const url = await toJpeg(refH.current, {
-            width: 1920,
-            height: 1080,
-            quality: 0.8,
-            canvasWidth: 1920,
-            canvasHeight: 1080,
-            cacheBust: false,
-          });
-          await uploadImage({ base64: url, label: name });
+          try {
+            const url = await toJpeg(refH.current, {
+              width: 1920,
+              height: 1080,
+              quality: 0.8,
+              canvasWidth: 1920,
+              canvasHeight: 1080,
+              cacheBust: false,
+            });
+            console.log(refH.current, url);
+            await uploadImage({ base64: url, label: name });
+          } catch (error) {
+            console.log("err", error);
+          }
         }
       }
       if (refV.current) {
@@ -79,15 +84,20 @@ export const Confirm = ({}: Props) => {
           });
         const result = await checkImage(name);
         if (!result) {
-          const url = await toJpeg(refV.current, {
-            width: 1080,
-            height: 1920,
-            quality: 0.8,
-            canvasWidth: 1080,
-            canvasHeight: 1920,
-            cacheBust: false,
-          });
-          await uploadImage({ base64: url, label: name });
+          try {
+            const url = await toJpeg(refV.current, {
+              width: 1080,
+              height: 1920,
+              quality: 0.8,
+              canvasWidth: 1080,
+              canvasHeight: 1920,
+              cacheBust: false,
+            });
+            console.log(refV.current, url);
+            await uploadImage({ base64: url, label: name });
+          } catch (error) {
+            console.log("err", error);
+          }
         }
       }
     } catch (error) {
