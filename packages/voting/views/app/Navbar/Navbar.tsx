@@ -58,19 +58,20 @@ export const Navbar = ({ hideShare }: Props) => {
               Буцах
             </p>
           ) : !hideShare ? (
-            <p
-              onClick={async () => {
-                try {
-                  const message = await logout();
-                  toast.success(message);
-                  window.location.reload();
-                } catch (error) {
-                  errorHandler(error);
-                }
-              }}
-            >
-              Системээс гарах
-            </p>
+            // <p
+            //   onClick={async () => {
+            //     try {
+            //       const message = await logout();
+            //       toast.success(message);
+            //       window.location.reload();
+            //     } catch (error) {
+            //       errorHandler(error);
+            //     }
+            //   }}
+            // >
+            //   Системээс гарах
+            // </p>
+            <></>
           ) : null}
           {gender ? (
             <Button

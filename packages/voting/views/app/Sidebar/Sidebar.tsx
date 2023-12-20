@@ -41,7 +41,7 @@ export const Sidebar = ({ show, onClose, logout }: Props) => {
         >
           Эмэгтэй
         </Button>
-        <Button onClick={logout}>Системээс гарах</Button>
+        {/* <Button onClick={logout}>Системээс гарах</Button> */}
       </div>
     </>
   );
