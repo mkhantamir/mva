@@ -28,12 +28,12 @@ export const Container = ({ children }: Props) => {
     (async () => {
       try {
         const response = await status();
-        if (response.result && router.pathname === "/login") {
-          router.push("/");
-        }
-        if (!response.result && router.pathname === "/") {
-          router.push("/login");
-        }
+        // if (response.result && router.pathname === "/login") {
+        //   router.push("/");
+        // }
+        // if (!response.result && router.pathname === "/") {
+        //   router.push("/login");
+        // }
         if (response.result) {
           const is_voted = await checkVoted();
           if (is_voted.male || is_voted.female) {

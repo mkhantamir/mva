@@ -1,0 +1,52 @@
+.container {
+  margin: auto;
+  width: 100%;
+  color: $color_black;
+  @include responsive("lg") {
+    width: 50%;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+    font-size: 5vw;
+    margin: 3vw 0;
+    @include responsive("sm") {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+    @include responsive("lg") {
+      font-size: 2vw;
+      margin: 1vw 0;
+    }
+  }
+  ol,
+  ul {
+    margin: 5vw 10vw;
+    @include responsive("sm") {
+      margin: 2rem 2rem;
+    }
+    @include responsive("lg") {
+      margin: 2vw 2vw;
+    }
+  }
+  li {
+    font-weight: 400;
+    font-size: 4vw;
+    margin: 6vw 0;
+    @include responsive("sm") {
+      font-size: 1rem;
+      margin: 1.5rem 0;
+    }
+    @include responsive("lg") {
+      font-size: 1vw;
+      margin: 1.5vw 0;
+    }
+    p {
+      font-size: 4vw;
+    }
+  }
+  a {
+    color: $color_primary;
+  }
+}

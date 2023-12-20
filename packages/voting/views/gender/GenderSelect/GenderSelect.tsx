@@ -3,6 +3,7 @@ import { Background } from "../Background";
 import { Modal } from "../Modal";
 import css from "./GenderSelect.module.scss";
 import { GenderContext } from "~/context";
+import Link from "next/link";
 type Props = {
   hide: boolean;
 };
@@ -18,6 +19,7 @@ export const GenderSelect = ({ hide }: Props) => {
           <Modal text="Эрэгтэй" onClick={() => setGender("male")} />
           <Modal text="Эмэгтэй" onClick={() => setGender("female")} />
         </div>
+        <Link href="/help">Хэрхэн санал өгөх вэ?</Link>
       </div>
     </div>
   );
