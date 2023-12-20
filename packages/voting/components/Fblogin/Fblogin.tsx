@@ -28,7 +28,7 @@ export const Fblogin = ({}: Props) => {
   try {
     return (
       <FacebookLogin
-        appId="763160141791513"
+        appId="1385156608804730"
         callback={handleLogin}
         render={(renderProps) => (
           <button onClick={renderProps.onClick} className={css.base}>
