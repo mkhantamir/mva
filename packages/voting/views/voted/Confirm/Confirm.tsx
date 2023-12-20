@@ -1,4 +1,5 @@
 import { toJpeg } from "html-to-image";
+import { domToWebp } from "modern-screenshot";
 import css from "./Confirm.module.scss";
 import { ShareWrapper } from "~/views/share";
 import { useContext, useRef, useState } from "react";
@@ -59,15 +60,9 @@ export const Confirm = ({}: Props) => {
         const result = await checkImage(name);
         if (!result) {
           try {
-            const url = await toJpeg(refH.current, {
-              width: 1920,
-              height: 1080,
-              quality: 0.8,
-              canvasWidth: 1920,
-              canvasHeight: 1080,
-              cacheBust: false,
-            });
-            console.log(refH.current, url);
+            const url = await domToWebp(
+              document.querySelector("#share-landscape") as any
+            );
             await uploadImage({ base64: url, label: name });
           } catch (error) {
             console.log("err", error);
@@ -85,25 +80,9 @@ export const Confirm = ({}: Props) => {
         const result = await checkImage(name);
         if (!result) {
           try {
-            const url = await toJpeg(refV.current, {
-              width: 1080,
-              height: 1920,
-              quality: 0.8,
-              canvasWidth: 1080,
-              canvasHeight: 1920,
-              cacheBust: false,
-            });
-            const url1 = await toJpeg(refV.current, {
-              width: 1080,
-              height: 1920,
-              quality: 0.8,
-            });
-            const url2 = await toJpeg(refV.current, {
-              canvasWidth: 1080,
-              canvasHeight: 1920,
-              quality: 0.8,
-            });
-            console.log(url, url2);
+            const url = await domToWebp(
+              document.querySelector("#share-portrait") as any
+            );
             await uploadImage({ base64: url, label: name });
           } catch (error) {
             console.log("err", error);
@@ -128,7 +107,15 @@ export const Confirm = ({}: Props) => {
               <button onClick={submitVote}>Тийм</button>
             </div>
           </div>
-          <div style={{ display: "none" }}>
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              zIndex: -2,
+              opacity: 0,
+            }}
+          >
             <ShareWrapper type="landscape" ref={refH} />
             <ShareWrapper type="portrait" ref={refV} />
           </div>

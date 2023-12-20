@@ -16,6 +16,7 @@ export const ShareWrapper = forwardRef(
     const [players] = useContext(SelectedPlayersContext);
     return (
       <div
+        id={`share-${type}`}
         ref={ref}
         className={`${css.container} ${css[type]}`}
         style={{

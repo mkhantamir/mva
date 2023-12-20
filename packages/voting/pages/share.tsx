@@ -1,8 +1,8 @@
 import { ShareWrapper } from "~/views/share";
-import { useToJpeg } from "@hugocxl/react-to-image";
 import { useContext, useEffect } from "react";
 import { SelectedPlayersContext } from "~/context";
 import { PlayerType } from ".";
+import { domToWebp } from "modern-screenshot";
 
 type Props = {};
 
@@ -10,16 +10,6 @@ const TextPage = ({}: Props) => {
   const [selectedPlayers, setSelectedPlayers] = useContext(
     SelectedPlayersContext
   );
-  const [state, convertToJpeg, ref] = useToJpeg<HTMLDivElement>({
-    onSuccess: (data: any) => {
-      console.log(data);
-    },
-    height: 1080,
-    width: 1920,
-    quality: 0.8,
-    canvasHeight: 1080,
-    canvasWidth: 1920,
-  });
   useEffect(() => {
     const player: PlayerType = {
       _id: 33664344,
@@ -57,11 +47,13 @@ const TextPage = ({}: Props) => {
 
   return (
     <>
-      <ShareWrapper type="portrait" ref={ref} />
+      <ShareWrapper type="landscape" />
       <button
-        onClick={() => {
-          console.log("clicked");
-          convertToJpeg();
+        onClick={async () => {
+          const result = await domToWebp(
+            document.querySelector("#share-landscape") as any
+          );
+          console.log(result);
         }}
         style={{ position: "fixed", bottom: 50, left: 50 }}
       >
