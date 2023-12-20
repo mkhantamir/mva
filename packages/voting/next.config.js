@@ -21,7 +21,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ["mesa.b-cdn.net", "localhost"],
+    domains: ["mesa.b-cdn.net", "localhost", "volleyball.ave.mn"],
   },
 };
 module.exports = nextConfig;
