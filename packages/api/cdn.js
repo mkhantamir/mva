@@ -5,7 +5,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "https://localhost:3000"],
   allowedHeader:
     "set-cookie, content-type, authorization, type, origins, device-id",
   methods: "GET, POST, PUT, DELETE",

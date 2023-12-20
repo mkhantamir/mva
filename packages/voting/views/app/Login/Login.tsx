@@ -11,6 +11,7 @@ import { Button, errorHandler, Textfield } from "@mva/shared";
 import { getIP, login } from "@mva/fetch";
 import { app } from "./firebase";
 import css from "./Login.module.scss";
+import { Fblogin } from "~/components";
 
 declare global {
   interface Window {
@@ -48,54 +49,13 @@ export const Login = ({}: Props) => {
   function removeSpaces(text: string): string {
     return text.replace(/\s/g, "");
   }
-  async function sendVerification(e: FormEvent<HTMLFormElement>) {
-    try {
-      e.preventDefault();
-      const recaptcha = new RecaptchaVerifier(auth, "sign-in-button", {
-        size: "invisible",
-        callback: () => {
-          console.log("done");
-        },
-      });
-      const number = addCountryCode(removeSpaces(phonenumber));
-      const confirmation = await signInWithPhoneNumber(auth, number, recaptcha);
-      setConfirmation(confirmation);
-      toast.success("Баталгаажуулах код илгээгдлээ.");
-    } catch (error: any) {
-      errorHandler(error);
-    }
-  }
-  async function confirmVerification() {
-    if (confirmation) {
-      try {
-        const result: any = await confirmation.confirm(otp);
-        const uuid = uuidv4();
-        localStorage.setItem("uuid", uuid);
-        const message = await login(result.user.accessToken, { ip: "", uuid });
-        toast.success(message);
-        window.location.reload();
-      } catch (error: any) {
-        if (error.message === "Firebase: Error (auth/code-expired).")
-          toast.error("Баталгаажуулах кодны хүчинтэй хугацаа дууссан");
-        else if (
-          error.message === "Firebase: Error (auth/invalid-verification-code)."
-        )
-          toast.error("Баталгаажуулах код буруу байна");
-        else errorHandler(error);
-      }
-    }
-  }
 
   return (
     <div className={css.container}>
-      <form
-        className={`${css.wrapper} ${confirmation ? css.wrapper_left : ""}`}
-        onSubmit={
-          phonenumber.length >= 8 ? sendVerification : (e) => e.preventDefault()
-        }
-      >
+      <div className={`${css.wrapper} ${confirmation ? css.wrapper_left : ""}`}>
         <h1>Нэвтрэх</h1>
-        <Textfield
+        <Fblogin />
+        {/* <Textfield
           placeholder="Утасны дугаар"
           value={phonenumber}
           onChange={(e) => {
@@ -109,9 +69,9 @@ export const Login = ({}: Props) => {
           onClick={confirmVerification}
         >
           Үргэлжлүүлэх
-        </Button>
-      </form>
-      <div className={`${css.wrapper} ${confirmation ? css.wrapper_left : ""}`}>
+        </Button> */}
+      </div>
+      {/* <div className={`${css.wrapper} ${confirmation ? css.wrapper_left : ""}`}>
         <h1>Нэвтрэх</h1>
         <Textfield
           placeholder="Баталгаажуулах код"
@@ -128,7 +88,7 @@ export const Login = ({}: Props) => {
         >
           Баталгаажуулах
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

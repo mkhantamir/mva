@@ -1,0 +1,17 @@
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: rgba($color_gray, 0.5);
+  &:focus {
+    outline: none;
+  }
+  img {
+    margin-right: 0.5rem;
+  }
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

@@ -9,10 +9,10 @@ export const createVote = asyncHandler(async (req, res) => {
     throw new customError("Хэрэглэгч олдсонгүй!", 404);
   }
   if (gender === "male" && user.is_voted_male) {
-    throw new customError("Нэг дугаараас нэг л санал өгөх боломжтой!", 401);
+    throw new customError("Нэг хаягаас нэг л санал өгөх боломжтой!", 401);
   }
   if (gender === "female" && user.is_voted_female) {
-    throw new customError("Нэг дугаараас нэг л санал өгөх боломжтой!", 401);
+    throw new customError("Нэг хаягаас нэг л санал өгөх боломжтой!", 401);
   }
   await Promise.all(
     players.map(async (player) => {

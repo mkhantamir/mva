@@ -62,7 +62,7 @@ export const Navbar = ({ hideShare }: Props) => {
               onClick={async () => {
                 try {
                   const message = await logout();
-                  toast(message);
+                  toast.success(message);
                   window.location.reload();
                 } catch (error) {
                   errorHandler(error);
@@ -88,7 +88,7 @@ export const Navbar = ({ hideShare }: Props) => {
         logout={async () => {
           try {
             const message = await logout();
-            toast(message);
+            toast.success(message);
             window.location.reload();
           } catch (error) {
             errorHandler(error);

@@ -8,6 +8,7 @@ import {
 } from "@mva/backend";
 import firebase from "firebase-admin";
 import jwt from "jsonwebtoken";
+import axios from "axios";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB_XzHuoMbsExM93vh_mk2ZCXloxiKZZx8",
@@ -19,8 +20,8 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const register = async (phone: string, data: { [key: string]: any }) => {
-  const user = await User.create({ ...data, phone, role: "client" });
+const register = async (fb_id: string, data: { [key: string]: any }) => {
+  const user = await User.create({ ...data, fb_id, role: "client" });
   return user;
 };
 
@@ -28,11 +29,15 @@ export const login = asyncHandler(async (req, res) => {
   try {
     const authorization = req.headers.authorization;
     const data = objectCleaner(req.body, ["ip", "uuid", "email"]);
-    const decodedData = await firebase.auth().verifyIdToken(authorization);
+    const response = (
+      await axios.get(
+        `https://graph.facebook.com/me?access_token=${authorization}`
+      )
+    ).data;
 
-    let user: any = await User.findOne({ phone: decodedData.phone_number });
+    let user: any = await User.findOne({ fb_id: response.id });
     if (!user) {
-      user = await register(decodedData.phone_number, data);
+      user = await register(response.id, data);
     }
     const token = user.getJsonWebToken();
     const cookieOptions = {

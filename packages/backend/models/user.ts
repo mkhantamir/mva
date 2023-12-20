@@ -8,6 +8,7 @@ const UserScheme = new mongoose.Schema(
   {
     email: String,
     phone: String,
+    fb_id: String,
     ip: String,
     uuid: String,
     role: {
