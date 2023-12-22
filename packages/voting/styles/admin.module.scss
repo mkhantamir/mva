@@ -1,0 +1,12 @@
+.container {
+  width: 850px;
+  margin: 2rem auto;
+  & > h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+  span {
+    color: $color_primary;
+  }
+}

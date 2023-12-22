@@ -1,0 +1,81 @@
+.item {
+  display: flex;
+  align-items: center;
+  background: $color_light;
+
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  button {
+    padding: 1vw 6vw 1.2vw 6vw;
+    margin-top: 1.5vw;
+    p {
+      font-size: 4vw;
+    }
+    cursor: pointer;
+    @include responsive("lg") {
+      padding: 0.15vw 1.3vw 0.25vw 1.3vw;
+      margin-top: 0.2vw;
+      p {
+        font-size: 1vw;
+      }
+    }
+  }
+}
+.avatar {
+  position: relative;
+  overflow: hidden;
+  width: 6rem;
+  height: 6rem;
+  background: $color_gray;
+  border-radius: 0.5rem;
+  img {
+    transform: scale(1.8) translateY(20%);
+    object-fit: contain;
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 20rem;
+  margin: 0 1rem;
+  & > p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:nth-child(1) {
+      font-size: 1rem;
+      color: rgba($color_black, 0.6);
+    }
+    &:nth-child(2) {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}
+.position {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color_secondary;
+    font-family: "TT Bluescreens Pro";
+    color: $color_light;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}

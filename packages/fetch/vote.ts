@@ -29,3 +29,11 @@ export const getMyVotes = async () => {
   const response = await axios.get("/vote/my");
   return response.data.result as any;
 };
+export const getVoteList = async () => {
+  const response = await axios.get("/vote/list");
+  return response.data.result as any;
+};
+export const getVoteCount = async () => {
+  const response = await axios.get("/vote/count");
+  return response.data.result as any;
+};
