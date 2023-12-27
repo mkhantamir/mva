@@ -119,3 +119,17 @@
     cursor: pointer;
   }
 }
+.ticket {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  a {
+    margin-top: 2vw;
+  }
+  @include responsive("lg") {
+    flex-direction: row;
+    a {
+      margin-top: 0;
+    }
+  }
+}

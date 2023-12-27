@@ -79,7 +79,16 @@ export const Card = ({ insideCourt }: Props) => {
       >
         <div className={css.heading}>
           <Image src={logo} alt="Дээд лиг - Санал хураалт лого" />
-          <p>Санал хураалт</p>
+          <div className={css.ticket}>
+            <p>Санал хураалт</p>
+            <a
+              href="https://ticket.aicsteppearena.mn/events/657fff3ca73951940b230ebb"
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              <button>Тасалбар худалдаж авах</button>
+            </a>
+          </div>
         </div>
         <Image
           className={css.voted}

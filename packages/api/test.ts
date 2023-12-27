@@ -60,4 +60,34 @@ import { Player, Vote, connectDatabase } from "@mva/backend";
 
 (async () => {
   await connectDatabase();
+
+  const result = await Vote.aggregate([
+    {
+      $lookup: {
+        from: "players",
+        localField: "player_id",
+        foreignField: "_id",
+        as: "player",
+      },
+    },
+    {
+      $match: {
+        "player.sex": "female",
+      },
+    },
+    {
+      $group: {
+        _id: "$player_id",
+        totalVotes: { $sum: 1 },
+      },
+    },
+    {
+      $sort: { totalVotes: -1 },
+    },
+    {
+      $limit: 5,
+    },
+  ]);
+
+  console.log(result);
 })();
