@@ -3,8 +3,6 @@
 // import { v4 as uuidv4 } from "uuid";
 // import { Player, Team, connectDatabase } from "@mva/backend";
 
-import { Player, Vote, connectDatabase } from "@mva/backend";
-
 // const files = fs.readdirSync("./avatars");
 
 // const ACCESS_KEY = "60e46042-23ae-4b8d-98ca48e93fdc-52db-49f1";
@@ -58,6 +56,9 @@ import { Player, Vote, connectDatabase } from "@mva/backend";
 
 // main();
 
+import { Player, Vote, connectDatabase } from "@mva/backend";
+import fs from "fs";
+
 (async () => {
   await connectDatabase();
 
@@ -72,7 +73,8 @@ import { Player, Vote, connectDatabase } from "@mva/backend";
     },
     {
       $match: {
-        "player.sex": "female",
+        "player.sex": "male",
+        "player.category_id": 179,
       },
     },
     {
@@ -84,10 +86,19 @@ import { Player, Vote, connectDatabase } from "@mva/backend";
     {
       $sort: { totalVotes: -1 },
     },
-    {
-      $limit: 5,
-    },
   ]);
 
-  console.log(result);
+  const data = [];
+
+  await Promise.all(
+    result.map(async (vote) => {
+      const player = await Player.findById(vote._id)
+        .select("firstname firstname_eng lastname lastname_eng team_id")
+        .populate("team");
+
+      data.push({ player, total: vote.totalVotes });
+    })
+  );
+
+  fs.writeFileSync("./male/chuluut.json", JSON.stringify(data));
 })();
