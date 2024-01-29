@@ -50,7 +50,7 @@ const HomePage: NextPage<Props> = ({ players, teams }) => {
         overflowY: !gender ? "hidden" : undefined,
       }}
     >
-      {/* <Court
+      <Court
         view={category ? "side" : "large"}
         onSelect={setCategory}
         selected={category ? category.index : -1}
@@ -83,16 +83,7 @@ const HomePage: NextPage<Props> = ({ players, teams }) => {
         selectedPlayers={selectedPlayers}
         selectPlayer={selectPlayer}
       />
-      <Submit /> */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Button>Санал авах хугацаа дууссан</Button>
-      </div>
+      <Submit />
       <Sidebar />
     </div>
   );
